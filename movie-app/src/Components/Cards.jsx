@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Pagination, Button, Card } from "react-bootstrap";
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 
 function Cards() {
