@@ -1,0 +1,197 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .root{
+    height: 100vh;
+  }
+
+.signup-container{
+    background-image: linear-gradient(to right, rgb(151, 151, 226) , rgb(154, 221, 248));
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.signup-form{
+    border: 0.2px solid blueviolet;
+    background-image: linear-gradient(to right, rgb(149, 149, 247) , rgb(245, 180, 245));
+    width: 30%;
+    padding: 2rem;
+    border-radius: 0.7rem;
+}
+
+.signup-form h3{
+    text-align: center;
+}
+
+
+.login-container{
+    background-image: linear-gradient(to right, rgb(151, 151, 226) , rgb(154, 221, 248));
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(245, 220, 249);
+    height: 5rem;
+}
+
+.navbar-logo{
+    padding-left: 1.5rem;
+}
+
+.navbar-user{
+    padding-right: 1.5rem;
+}
+
+
+
+
+.MovieCard-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgb(247, 229, 249);
+    padding-left: 4rem;
+    gap: 1.5rem;
+    /* margin: 10px; */
+
+    
+}
+
+.MovieCard{
+    background-color: rgb(247, 229, 249);
+    width: 100%;
+    gap: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+
+
+
+.MovieCard img{
+    width: 100%;
+    height: 60%;
+    border-radius: 5px 5px 0 0;
+}
+
+.detailcard{
+    background-color: rgb(247, 229, 249);
+    width: 100%;
+    padding-left: 10rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 5px;
+}
+
+
+.search-container{
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+    width: 100%;
+    background-color: rgb(247, 229, 249);
+
+}
+
+.search-input {
+    border-radius: 8px 0 0 8px;
+    border: 1px solid black;
+    padding: 0.6em 1.2em;
+    /* font-size: 1em; */
+    font-weight: 600;
+    /* font-family: inherit; */
+    cursor: pointer;
+    transition: border-color 0.25s;
+    width: 25%;
+    background-color: #cfb6f7;
+  }
+
+
+  .search-btn {
+    border-radius: 0 8px 8px 0;
+    border: 1px solid black;
+    padding: 0.6em 1.2em;
+    font-weight: 600;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    width: 8%;
+    background-color: #cfb6f7;
+
+  }
+
+  .search-btn:hover {
+    background-color: #b88cfe;
+  }
+
+.pagination{
+    padding-top: 1rem ;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    background-color: rgb(247, 229, 249);
+}
+
+
+
+@media screen and (max-width : 768px) {
+    .signup-form{
+        background-color: #d2afff;
+        width: 80%;
+        padding: 2rem;
+    }
+    .signup-form .link{
+        display: none;
+    }
+
+    .MovieCard-list{
+        padding-left: 5.5rem;
+    }
+
+    .search-input{
+        width: 45%;
+    }
+
+    .search-btn{
+        width: 20%;
+    }
+
+    .MovieCard{
+        height: 100%;
+    }
+
+    .detailcard{
+        padding-left: 4.5rem;
+        padding-top: 3rem;
+        padding-bottom: 2.5rem;
+    }
+    
+} 
