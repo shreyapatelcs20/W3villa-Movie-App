@@ -1,25 +1,16 @@
-body, html {
-    height: 100%;
-    margin: 0;
-  }
+body{
+    background-color: rgb(247, 229, 249);
 
-  .root{
-    height: 100vh;
-  }
-
+}
+  
 .signup-container{
     background-image: linear-gradient(to right, rgb(151, 151, 226) , rgb(154, 221, 248));
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .signup-form{
@@ -28,23 +19,16 @@ body, html {
     width: 30%;
     padding: 2rem;
     border-radius: 0.7rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .signup-form h3{
     text-align: center;
 }
 
-
 .login-container{
+    font-family: 'Times New Roman', Times, serif;
     background-image: linear-gradient(to right, rgb(151, 151, 226) , rgb(154, 221, 248));
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,6 +38,7 @@ body, html {
 
 
 .navbar{
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
     justify-content: space-between;
     background-color: rgb(245, 220, 249);
@@ -68,83 +53,94 @@ body, html {
     padding-right: 1.5rem;
 }
 
-
-
-
 .MovieCard-list{
+    
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     background-color: rgb(247, 229, 249);
     padding-left: 4rem;
-    gap: 1.5rem;
-    /* margin: 10px; */
-
-    
+    gap: 1.5rem; 
+   
 }
 
 .MovieCard{
-    background-color: rgb(247, 229, 249);
-    width: 100%;
-    gap: 1rem;
+    gap: 0.5rem;
     padding: 10px;
-    border-radius: 5px;
-    
 }
 
-
-
+.MovieCard:hover{
+    border: #b88cfe;
+}
 
 .MovieCard img{
     width: 100%;
-    height: 60%;
+    height: 100%;
     border-radius: 5px 5px 0 0;
 }
 
 .detailcard{
+    font-family: 'Times New Roman', Times, serif;
     background-color: rgb(247, 229, 249);
     width: 100%;
-    padding-left: 10rem;
+    height: 100%;
     padding-top: 2rem;
     padding-bottom: 2rem;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
 }
 
+ .MovieCard-details{
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    border-radius: 5px;
+} 
+
+.movie-poster {
+    height: 300px; 
+    object-fit: cover; 
+  }
+  
+  .MovieCard-details {
+    height: auto; 
+  }
+  
 
 .search-container{
+    font-family: 'Times New Roman', Times, serif;
     padding-bottom: 2rem;
     padding-top: 2rem;
     text-align: center;
     width: 100%;
     background-color: rgb(247, 229, 249);
-
 }
 
 .search-input {
+    font-family: 'Times New Roman', Times, serif;
     border-radius: 8px 0 0 8px;
     border: 1px solid black;
     padding: 0.6em 1.2em;
-    /* font-size: 1em; */
     font-weight: 600;
-    /* font-family: inherit; */
     cursor: pointer;
     transition: border-color 0.25s;
     width: 25%;
     background-color: #cfb6f7;
   }
 
+.whole{
+    background-color: #cfb6f7;
+}
 
   .search-btn {
     border-radius: 0 8px 8px 0;
     border: 1px solid black;
     padding: 0.6em 1.2em;
     font-weight: 600;
-    background-color: white;
     cursor: pointer;
     transition: border-color 0.25s;
     width: 8%;
     background-color: #cfb6f7;
-
   }
 
   .search-btn:hover {
@@ -152,13 +148,16 @@ body, html {
   }
 
 .pagination{
-    padding-top: 1rem ;
+    padding-top: 3rem ;
     padding-bottom: 2rem;
     display: flex;
     justify-content: center;
     font-weight: 800;
     background-color: rgb(247, 229, 249);
 }
+
+
+
 
 
 
@@ -189,9 +188,19 @@ body, html {
     }
 
     .detailcard{
-        padding-left: 4.5rem;
-        padding-top: 3rem;
-        padding-bottom: 2.5rem;
+        padding: 4rem;
+        padding-top: 2rem;
+    }
+
+    .login-button Button{
+        width: 50%;
+    
+    }
+
+    .login-button{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
     
 } 

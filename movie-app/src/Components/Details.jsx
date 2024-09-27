@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function Details() {
   const { id } = useParams(); // Get the movie ID from the URL params
@@ -39,26 +40,35 @@ function Details() {
   }
 
   return (
-    <div className="detailcard">
-      {/* Display movie details inside Bootstrap Card */}
-      <Card style={{ width: '18rem'}} className="MovieCard">
-        <Card.Img variant="top" src={movie.Poster} alt={movie.Title} />
-        <Card.Body className="d-flex flex-column justify-content-between">
-          <div>
-            <Card.Title>{movie.Title}</Card.Title>
-            <Card.Text>Released: {movie.Year}</Card.Text>
-            <Card.Text>Director: {movie.Director}</Card.Text>
-            <Card.Text>Plot: {movie.Plot}</Card.Text>
-            <Card.Text>Awards: {movie.Awards}</Card.Text>
-          </div>
-          {/* Centering the button */}
-          <div className="mt-auto text-center pt-4">
-            <Link to='/cards'> <Button variant="primary">Go back</Button></Link>
-           
-          </div>
-        </Card.Body>
-      </Card>
-    </div>
+    <>
+      <Navbar />
+      <div className="detailcard">
+        {/* Display movie details inside Bootstrap Card */}
+        <Card style={{ width: '24rem' }} className="MovieCard-details">
+          <Card.Img 
+            variant="top" 
+            src={movie.Poster} 
+            alt={movie.Title} 
+            className="movie-poster" // Added custom class for image control
+          />
+          <Card.Body className="d-flex flex-column justify-content-between">
+            <div>
+              <Card.Title>{movie.Title}</Card.Title>
+              <Card.Text>Released: {movie.Year}</Card.Text>
+              <Card.Text>Director: {movie.Director}</Card.Text>
+              <Card.Text>Plot: {movie.Plot}</Card.Text>
+              <Card.Text>Awards: {movie.Awards}</Card.Text>
+            </div>
+            {/* Centering the button */}
+            <div className="mt-auto text-center pt-4">
+              <Link to='/cards'> 
+                <Button variant="primary">Go back</Button>
+              </Link>
+            </div>
+          </Card.Body>
+        </Card>
+      </div>
+    </>
   );
 }
 

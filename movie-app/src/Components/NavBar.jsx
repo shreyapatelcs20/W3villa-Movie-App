@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./style.css"; 
 
-function NavBar() {
+function Navbar() {
   // State to store the logged-in user's name and login status
   const [userName, setUserName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,4 +34,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navbar;

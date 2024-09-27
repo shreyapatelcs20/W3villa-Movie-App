@@ -34,10 +34,12 @@ function SignUp() {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
+        <div className="login-button">
         <Button variant="primary" type="submit">
           Sign Up
         </Button>
         <Link to='login' className="m-4">Already have an account</Link>
+        </div>
       </Form>
     </div>
   );

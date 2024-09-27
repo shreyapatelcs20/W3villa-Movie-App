@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Pagination, Button, Card } from "react-bootstrap";
-import NavBar from "./NavBar";
+import { Pagination, Card } from "react-bootstrap";
+import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import './style.css'
 
 function Cards() {
   const [movies, setMovies] = useState([]); // Store the list of movies
@@ -32,8 +33,9 @@ function Cards() {
   }
 
   const handleSearch = async () => {
-    if (searchText.trim() === "") return; // Avoid searching for empty text
-
+    if (searchText.trim() === "") return; // Stops execution if input is empty
+  
+    // Otherwise, continue with the search operation, e.g., fetching search results
     const fetchedMovies = await getMovies(searchText); // Fetch new movies based on search text
     setMovies(fetchedMovies); // Update the displayed movies
     setCurrentPage(1); // Reset to the first page after search
@@ -55,8 +57,8 @@ function Cards() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <>
-      <NavBar />
+    <div className="whole">
+      <Navbar />
       {/* Search Input and Button */}
       <div className="search-container">
         <input
@@ -66,6 +68,11 @@ function Cards() {
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value); // Update search text as user types
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch(); // Call handleSearch when Enter is pressed
+            }
           }}
         />
         <button className="search-btn" onClick={handleSearch}>
@@ -79,24 +86,21 @@ function Cards() {
           const { imdbID, Poster, Title, Year } = movie; // Destructure movie data
 
           return (
-            <Card style={{ width: '16rem' }} key={imdbID} className="MovieCard">
-              <Card.Img variant="top" src={Poster} />
-              <Card.Body className="d-flex flex-column justify-content-between">
-                <div>
-                  <Card.Title>{Title}</Card.Title>
-                  <Card.Text>
-                    Released: {Year}
-                  </Card.Text>
+            
+            <Link to={`/details/${imdbID}`} key={imdbID} style={{ textDecoration: 'none' }}>
+              
+              <Card style={{ width: '16rem', cursor: 'pointer' }} className="MovieCard">
+                <div className="card-image">
+                <Card.Img variant="top" src={Poster} />
                 </div>
-                {/* Centering the button */}
-                <div className="mt-auto text-center">
-                  <Link to={`/details/${imdbID}`}>
-                  <Button variant="primary">Details</Button>
-                  </Link>
-                 
-                </div>
-              </Card.Body>
-            </Card>
+                <Card.Body className="d-flex flex-column justify-content-between">
+                  <div>
+                    <Card.Title>{Title}</Card.Title>
+                    <Card.Text>Released: {Year}</Card.Text>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Link>
           );
         })}
       </div>
@@ -121,8 +125,9 @@ function Cards() {
           <Pagination.Last onClick={() => paginate(totalPages)} disabled={currentPage === totalPages} />
         </Pagination>
       )}
-    </>
+    </div>
   );
 }
 
 export default Cards;
+
