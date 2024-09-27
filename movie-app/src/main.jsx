@@ -7,7 +7,7 @@ import SignUp from "./Components/SignUp";
 import './index.css'
 import './Components/style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './Components/Navbar';
+import Navbar from './Components/Navbar.jsx';
 import Cards from './Components/Cards';
 import Details from './Components/Details';
 
