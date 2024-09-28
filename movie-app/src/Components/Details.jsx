@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import Header from "./Header";
 
 function Details() {
   const { id } = useParams(); // Get the movie ID from the URL params
@@ -41,7 +41,7 @@ function Details() {
 
   return (
     <>
-      <Navbar />
+      <Header />
       <div className="detailcard">
         {/* Display movie details inside Bootstrap Card */}
         <Card style={{ width: '24rem' }} className="MovieCard-details">
@@ -52,7 +52,7 @@ function Details() {
             className="movie-poster" // Added custom class for image control
           />
           <Card.Body className="d-flex flex-column justify-content-between">
-            <div>
+            <div className="detail-details">
               <Card.Title>{movie.Title}</Card.Title>
               <Card.Text>Released: {movie.Year}</Card.Text>
               <Card.Text>Director: {movie.Director}</Card.Text>

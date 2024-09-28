@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Pagination, Card } from "react-bootstrap";
-import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
-import './style.css'
+import { Link } from "react-router-dom"; // Import Link for navigation
+import Header from "./Header";
 
 function Cards() {
   const [movies, setMovies] = useState([]); // Store the list of movies
@@ -24,7 +23,8 @@ function Cards() {
   }, []);
 
   // Fetch movie data from the OMDb API
-  async function getMovies(query = "batman") { // Default query to fetch some initial movies
+  async function getMovies(query = "batman") {
+    // Default query to fetch some initial movies
     const response = await fetch(
       `https://www.omdbapi.com/?s=${query}&apikey=2f2d7cf`
     );
@@ -33,9 +33,8 @@ function Cards() {
   }
 
   const handleSearch = async () => {
-    if (searchText.trim() === "") return; // Stops execution if input is empty
-  
-    // Otherwise, continue with the search operation, e.g., fetching search results
+    if (searchText.trim() === "") return; // Avoid searching for empty text
+
     const fetchedMovies = await getMovies(searchText); // Fetch new movies based on search text
     setMovies(fetchedMovies); // Update the displayed movies
     setCurrentPage(1); // Reset to the first page after search
@@ -57,8 +56,8 @@ function Cards() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="whole">
-      <Navbar />
+    <>
+      <Header />
       {/* Search Input and Button */}
       <div className="search-container">
         <input
@@ -79,30 +78,30 @@ function Cards() {
           Search
         </button>
       </div>
-
+  
       {/* Movie Cards */}
       <div className="MovieCard-list">
-        {currentMovies.map((movie) => {
-          const { imdbID, Poster, Title, Year } = movie; // Destructure movie data
-
-          return (
-            
-            <Link to={`/details/${imdbID}`} key={imdbID} style={{ textDecoration: 'none' }}>
-              
-              <Card style={{ width: '16rem', cursor: 'pointer' }} className="MovieCard">
-                <div className="card-image">
-                <Card.Img variant="top" src={Poster} />
-                </div>
-                <Card.Body className="d-flex flex-column justify-content-between">
-                  <div>
+        {currentMovies.length > 0 ? (
+          currentMovies.map((movie) => {
+            const { imdbID, Poster, Title, Year } = movie; // Destructure movie data
+  
+            return (
+              <Link to={`/details/${imdbID}`} key={imdbID} style={{ textDecoration: 'none' }}>
+                <Card style={{ width: '16rem' }} className="MovieCard">
+                  <Card.Img variant="top" src={Poster} />
+                  <Card.Body className="title-card">
                     <Card.Title>{Title}</Card.Title>
                     <Card.Text>Released: {Year}</Card.Text>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Link>
-          );
-        })}
+                  </Card.Body>
+                </Card>
+              </Link>
+            );
+          })
+        ) : (
+          <div className="no-results" style={{ textAlign: 'center', padding: '20px' }}>
+            <h5>No movies found.</h5>
+          </div>
+        )}
       </div>
 
       {/* Pagination Component */}
@@ -125,9 +124,8 @@ function Cards() {
           <Pagination.Last onClick={() => paginate(totalPages)} disabled={currentPage === totalPages} />
         </Pagination>
       )}
-    </div>
+    </>
   );
 }
 
 export default Cards;
-
