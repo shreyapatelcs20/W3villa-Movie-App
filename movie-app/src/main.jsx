@@ -7,6 +7,7 @@ import SignUp from "./Components/SignUp";
 import './index.css'
 import './Components/style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Header from './Components/Header';
 import Cards from './Components/Cards';
 import Details from './Components/Details';
