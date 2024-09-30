@@ -17,6 +17,13 @@ function Header() {
     }
   }, []); // Empty array ensures this runs once after component mounts
 
+  // Log out function to clear user data and redirect to the signup page
+  const handleLogout = () => {
+    setUserName("");
+    setIsLoggedIn(false);
+    window.location.href = "/"; // Redirect to the signup page
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-logo">
@@ -24,14 +31,17 @@ function Header() {
       </div>
       <div className="navbar-user">
         {isLoggedIn ? (
-          <span>Welcome, {userName}!</span>
+          <div>
+            <span>Welcome, {userName}!</span>
+            <button className="logout-button" onClick={handleLogout}>Log Out</button>
+          </div>
         ) : (
           <span>Please Log In</span>
         )}
       </div>
-      
     </div>
   );
 }
 
 export default Header;
+
