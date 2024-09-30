@@ -27,7 +27,7 @@ function Header() {
   return (
     <div className="navbar">
       <div className="navbar-logo">
-        <h2>Movie-App</h2>
+        <h2>Reelify</h2>
       </div>
       <div className="navbar-user">
         {isLoggedIn ? (
