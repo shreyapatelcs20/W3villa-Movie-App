@@ -80,6 +80,11 @@ body{
    
 }
 
+.Submit-button-all{
+    display: flex;
+    gap: 0.5rem;
+}
+
 
 .MovieCard{
     gap: 0.5rem;
