@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const navigate=useNavigate()
  
-  // State variables to hold email, password, error, and success messages
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -24,13 +23,14 @@ function Login() {
         email,
         password,
       });
+      
 
       setSuccess("Successfully Login!");
       setError(''); 
       navigate('/Cards')
 
       // You can also handle the response here (e.g., save token, redirect, etc.)
-      console.log(response.data); // For debugging
+      console.log(response.data.token); // For debugging
 
     } catch (error) {
       // Handle error in login process
@@ -41,6 +41,10 @@ function Login() {
       }
       setSuccess(''); // Clear success message if there's an error
     }
+  };
+
+  const handleSignUp = () => {
+    window.location.href = "/"; // Redirect to the signup page
   };
 
   return (
@@ -74,10 +78,13 @@ function Login() {
           <Form.Check type="checkbox" label="Forgot Password" />
         </Form.Group>
 
+        <div className='Submit-button-all'>
         <div className='submit-button'>
-        
           <Button type='submit'>Login</Button>
-          
+        </div>
+        <div className='submit-button'>
+        <Button type='submit' onClick={handleSignUp}>Sign Up</Button>
+        </div>
         </div>
 
         {/* Display error or success messages */}
