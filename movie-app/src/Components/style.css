@@ -4,7 +4,11 @@ body{
 }
   
 .signup-container{
-    background-image: linear-gradient(to right, rgb(151, 151, 226) , rgb(154, 221, 248));
+    
+    background-image: url('https://img.freepik.com/free-photo/movie-background-collage_23-2149876003.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +19,7 @@ body{
 
 .signup-form{
     border: 0.2px solid blueviolet;
-    background-image: linear-gradient(to right, rgb(149, 149, 247) , rgb(245, 180, 245));
+    background-color: rgb(205, 205, 227);
     width: 30%;
     padding: 2rem;
     border-radius: 0.7rem;
@@ -28,7 +32,10 @@ body{
 
 .login-container{
     font-family: 'Times New Roman', Times, serif;
-    background-image: linear-gradient(to right, rgb(151, 151, 226) , rgb(154, 221, 248));
+    background-image: url('https://img.freepik.com/free-photo/movie-background-collage_23-2149876003.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +48,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(245, 220, 249);
+    background-color: rgb(234, 232, 234);
     height: 5rem;
 }
 
@@ -74,7 +81,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(247, 229, 249);
+    background-image: url('movie-app\src\assets\images\Screenshot 2024-10-04 104129.png');
     padding-left: 4rem;
     gap: 1.5rem; 
    
@@ -111,7 +118,6 @@ body{
 
 .detailcard{
     font-family: 'Times New Roman', Times, serif;
-    background-color: rgb(247, 229, 249);
     width: 100%;
     height: 100%;
     padding-top: 2rem;
@@ -123,12 +129,14 @@ body{
 
  .MovieCard-details{
     font-family: 'Times New Roman', Times, serif;
+    background-color: #fcfafa;
     padding: 10px;
+    
     border-radius: 5px;
 } 
 
 .movie-poster {
-    height: 300px; 
+    height: 350px; 
     object-fit: cover; 
   }
   
@@ -143,12 +151,11 @@ body{
     padding-top: 2rem;
     text-align: center;
     width: 100%;
-    background-color: rgb(247, 229, 249);
 }
 
 .MovieCard img {
-    height: 330px; /* Set a fixed height for the image */
-    object-fit: cover; /* Ensure the image covers the container without stretching */
+    height: 330px; 
+    object-fit: cover;
   }
 .card-title{
     width: 100%;
@@ -164,15 +171,15 @@ body{
     cursor: pointer;
     transition: border-color 0.25s;
     width: 25%;
-    background-color: #cfb6f7;
+    background-color: #0b57c8;
+    color: white;
   }
 
 .whole{
-    background-color: #cfb6f7;
+    background-color: #0b57c8;
 }
 
 .detail-details{
-    /* height: 100%; */
     padding-bottom: 3rem ;
 }
 
@@ -184,11 +191,12 @@ body{
     cursor: pointer;
     transition: border-color 0.25s;
     width: 8%;
-    background-color: #cfb6f7;
+    background-color: #0b57c8;
+    color: white;
   }
 
   .search-btn:hover {
-    background-color: #b88cfe;
+    background-color: #093a84;
   }
 
 
@@ -198,10 +206,69 @@ body{
     display: flex;
     justify-content: center;
     font-weight: 800;
-    background-color: rgb(247, 229, 249);
-    
-
 }
+
+
+.button-20 {
+    appearance: button;
+    background-color: #0b57c8;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+    border: 1px solid #4D4AE8;
+    border-radius: 1rem;
+    box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset,rgba(46, 54, 80, 0.075) 0 1px 1px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    padding: .5rem 1rem;
+    text-align: center;
+    text-transform: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+  
+  .button-20:focus:not(:focus-visible),
+  .button-20:focus {
+    outline: 0;
+  }
+  
+  .button-20:hover {
+    background-color: #06439d;
+    border-color: #3733E5;
+  }
+  
+  .button-20:focus {
+    background-color: #413FC5;
+    border-color: #3E3BBA;
+    box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+  }
+  
+  .button-20:active {
+    background-color: #3E3BBA;
+    background-image: none;
+    border-color: #3A38AE;
+    box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset;
+  }
+  
+  .button-20:active:focus {
+    box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+  }
+  
+  .button-20:disabled {
+    background-image: none;
+    box-shadow: none;
+    opacity: .65;
+    pointer-events: none;
+  }
+
 
 
 
@@ -210,7 +277,7 @@ body{
 
 @media screen and (max-width : 768px) {
     .signup-form{
-        background-color: #d2afff;
+        background-color: rgb(205, 205, 227);
         width: 80%;
         padding: 2rem;
     }
@@ -248,6 +315,14 @@ body{
         display: flex;
         flex-direction: column;
         text-align: center;
+    }
+    .detail-btn{
+        height: 100px;
+    }
+
+    .detail-btn button{
+        height: 60px !important;
+        width: 100px !important;
     }
     
 } 
