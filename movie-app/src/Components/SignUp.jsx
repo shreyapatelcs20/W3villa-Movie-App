@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./style.css";
 import { Link, useNavigate } from 'react-router-dom';
@@ -106,9 +105,13 @@ function SignUp() {
         </Form.Group>
 
         <div className="login-button">
-          <Button variant="primary" type="submit">
+        <button
+            className="button-20"
+            role="button"
+            type='sumbit'
+          >
             Sign Up
-          </Button>
+          </button>
           <Link to='/login' className="m-4">Already have an account</Link>
         </div>
 
