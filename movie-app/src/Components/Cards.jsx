@@ -1,64 +1,55 @@
 import { useState, useEffect } from "react";
 import { Pagination, Card } from "react-bootstrap";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom"; 
 import Header from "./Header";
 
 function Cards() {
-  const [movies, setMovies] = useState([]); // Store the list of movies
-  const [searchText, setSearchText] = useState(""); // Search text state
-  const [currentPage, setCurrentPage] = useState(1); // Track current page
-  const [itemsPerPage] = useState(5); // Number of movies per page
+  const [movies, setMovies] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [itemsPerPage] = useState(5);
 
-  // Fetch movie data on initial render
   useEffect(() => {
     const storedSearchText = localStorage.getItem("searchText");
     const storedMovies = localStorage.getItem("movies");
 
     if (storedSearchText && storedMovies) {
       setSearchText(storedSearchText);
-      setMovies(JSON.parse(storedMovies)); // Load the movies from localStorage
+      setMovies(JSON.parse(storedMovies)); 
     } else {
-      getMovies(); // Fetch movies for the first time
+      getMovies(); 
     }
   }, []);
 
-  // Fetch movie data from the OMDb API
   async function getMovies(query = "batman") {
-    // Default query to fetch some initial movies
     const response = await fetch(
       `https://www.omdbapi.com/?s=${query}&apikey=2f2d7cf`
     );
     const json = await response.json();
-    return json.Search || []; // Return the movies found or an empty array
+    return json.Search || []; 
   }
 
   const handleSearch = async () => {
-    if (searchText.trim() === "") return; // Avoid searching for empty text
+    if (searchText.trim() === "") return;
+    const fetchedMovies = await getMovies(searchText); 
+    setMovies(fetchedMovies); 
+    setCurrentPage(1); 
 
-    const fetchedMovies = await getMovies(searchText); // Fetch new movies based on search text
-    setMovies(fetchedMovies); // Update the displayed movies
-    setCurrentPage(1); // Reset to the first page after search
-
-    // Save the search result to localStorage
     localStorage.setItem("searchText", searchText);
     localStorage.setItem("movies", JSON.stringify(fetchedMovies));
   };
 
-  // Get current page's movies
   const indexOfLastMovie = currentPage * itemsPerPage;
   const indexOfFirstMovie = indexOfLastMovie - itemsPerPage;
   const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
-  // Calculate total pages
   const totalPages = Math.ceil(movies.length / itemsPerPage);
 
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
       <Header />
-      {/* Search Input and Button */}
       <div className="search-container">
         <input
           type="text"
@@ -66,11 +57,11 @@ function Cards() {
           placeholder="Search Movies"
           value={searchText}
           onChange={(e) => {
-            setSearchText(e.target.value); // Update search text as user types
+            setSearchText(e.target.value); 
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              handleSearch(); // Call handleSearch when Enter is pressed
+              handleSearch(); 
             }
           }}
         />
@@ -79,11 +70,10 @@ function Cards() {
         </button>
       </div>
   
-      {/* Movie Cards */}
       <div className="MovieCard-list">
         {currentMovies.length > 0 ? (
           currentMovies.map((movie) => {
-            const { imdbID, Poster, Title, Year } = movie; // Destructure movie data
+            const { imdbID, Poster, Title, Year } = movie; 
   
             return (
               <Link to={`/details/${imdbID}`} key={imdbID} style={{ textDecoration: 'none' }}>
@@ -104,7 +94,6 @@ function Cards() {
         )}
       </div>
 
-      {/* Pagination Component */}
       {totalPages > 1 && (
         <Pagination className="pagination">
           <Pagination.First onClick={() => paginate(1)} disabled={currentPage === 1} />
