@@ -1,54 +1,43 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import './style.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import Form from "react-bootstrap/Form";
+import "./style.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const navigate=useNavigate()
- 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
-  // Handle form submission
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Send login request to the API
-      const response = await axios.post('https://reqres.in/api/login', {
+      const response = await axios.post("https://reqres.in/api/login", {
         email,
         password,
       });
-      
 
       setSuccess("Successfully Login!");
-      setError(''); 
-      navigate('/Cards')
+      setError("");
+      navigate("/Cards");
 
-      // You can also handle the response here (e.g., save token, redirect, etc.)
-      console.log(response.data.token); // For debugging
-
+      console.log(response.data); 
     } catch (error) {
-      // Handle error in login process
       if (error.response && error.response.data) {
         setError(`Login failed: ${error.response.data.error}`);
       } else {
         setError("Login failed. Please try again.");
       }
-      setSuccess(''); // Clear success message if there's an error
+      setSuccess("");
     }
   };
 
-  const handleSignUp = () => {
-    window.location.href = "/"; // Redirect to the signup page
-  };
-
   return (
-    <div className='login-container'>
+    <div className="login-container">
       <Form className="signup-form" onSubmit={handleSubmit}>
         <h3>Login</h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -78,16 +67,21 @@ function Login() {
           <Form.Check type="checkbox" label="Forgot Password" />
         </Form.Group>
 
-        <div className='Submit-button-all'>
-        <div className='submit-button'>
-          <Button type='submit'>Login</Button>
-        </div>
-        <div className='submit-button'>
-        <Button type='submit' onClick={handleSignUp}>Sign Up</Button>
-        </div>
+        <div className="submit-button g-4" style={{display:"flex", gap:"0.5rem"}}>
+          <button
+            className="button-20"
+            role="button"
+          >
+            Login
+          </button>
+          <button
+            className="button-20"
+            role="button"
+          >
+            Sign Up
+          </button>
         </div>
 
-        {/* Display error or success messages */}
         {error && <div className="alert alert-danger mt-3">{error}</div>}
         {success && <div className="alert alert-success mt-3">{success}</div>}
       </Form>
